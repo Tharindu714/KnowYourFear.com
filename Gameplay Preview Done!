@@ -294,23 +294,24 @@
       </div>
     </section>
 
-      <!-- Gameplay Video -->
-    <section id="gameplay">
-      <div class="container">
-        <div class="video-container">
-          <!-- Replace src with your video file or embed link -->
-          <video
-            src="https://youtu.be/Kpe6rd3bP-Y?si=pWdAGiBFn5E-iPo9"
-            controls
-            poster="images/video-poster.jpg"
-          ></video>
-        </div>
-      </div>
-    </section>
+<!-- Gameplay Video -->
+<section id="gameplay">
+  <div class="container">
+    <div class="video-container" style="position: relative; padding-bottom: 56.25%; height: 0; overflow: hidden;">
+      <iframe 
+        src="https://www.youtube.com/embed/Kpe6rd3bP-Y?si=lwkSG6UeW3GBhQGo" 
+        frameborder="0" 
+        allowfullscreen
+        style="position: absolute; top: 0; left: 0; width: 100%; height: 100%;">
+      </iframe>
+    </div>
+  </div>
+</section>
+
 
   <!-- Footer -->
   <footer>
-    <section class="footer-top">
+    <section class="footer-top" style="background: url('images/footer-bg-image.jpg') no-repeat center center/cover;">
       <!--Container-->
       <div class="container">
         <h2>Challenge Your Fear Now !!</h2>
