@@ -7,8 +7,8 @@
   <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no" />
   <meta name="description" content="" />
   <meta name="author" content="" />
-  <title>Know Your Fear</title>
-    <link rel="icon" type="image/png" href="images/skinned.jpg" />
+  <title>Know Your Fear - The Game</title>
+  <link rel="icon" type="image/png" href="images/skinned.jpg" />
   <!-- Bootstrap CSS -->
   <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css"
     integrity="sha384-Gn5384xqQ1aoWXA+058RXPxPg6fy4IWvTNh0E263XmFcJlSAwiGgFAW/dAiS6JXm" crossorigin="anonymous" />
@@ -20,23 +20,150 @@
   <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/ekko-lightbox/5.3.0/ekko-lightbox.css" />
   <link rel="stylesheet" href="css/animate.css" />
   <link rel="stylesheet" href="css/main.css" />
-    <style>
+  <style>
     /* Enhanced styling for next-level look */
-    body { font-family: 'Montserrat', sans-serif; color: #eee; background: #111; }
-    .navbar { background: rgba(0,0,0,0.7); }
-    .navbar-brand img { height: 40px; }
-    .hero { position: relative; height: 75vh; overflow: hidden; }
-    .hero img { object-fit: cover; width: 100%; height: 100%; }
-    .hero-overlay { position: absolute; top:0; left:0; width:100%; height:100%; background: rgba(0,0,0,0.5); }
-    .hero-text { position: absolute; top:50%; left:50%; transform:translate(-50%,-50%); text-align:center; }
-    .hero-text h1 { font-family: 'Playfair Display', serif; font-size: 3rem; color: #fff; margin-bottom: 1rem; }
-    section { padding: 60px 0; }
-    .requirements .card { background: rgba(20,20,20,0.8); border: none; }
-    .requirements .card-body h5 { color: #ff416c; }
-    .video-container { position: relative; padding-bottom: 56.25%; height: 0; overflow: hidden; }
-    .video-container iframe, .video-container video { position: absolute; top:0; left:0; width:100%; height:100%; border-radius:8px; }
-    footer { background: #000; color: #777; padding: 40px 0; }
-    footer a { color: #555; }
+    body {
+      font-family: 'Montserrat', sans-serif;
+      color: #eee;
+      background: #111;
+    }
+
+    .navbar {
+      background: rgba(0, 0, 0, 0.7);
+    }
+
+    .navbar-brand img {
+      height: 40px;
+    }
+
+    .hero {
+      position: relative;
+      height: 75vh;
+      overflow: hidden;
+    }
+
+    .hero img {
+      object-fit: cover;
+      width: 100%;
+      height: 100%;
+    }
+
+    .hero-overlay {
+      position: absolute;
+      top: 0;
+      left: 0;
+      width: 100%;
+      height: 100%;
+      background: rgba(0, 0, 0, 0.5);
+    }
+
+    .hero-text {
+      position: absolute;
+      top: 50%;
+      left: 50%;
+      transform: translate(-50%, -50%);
+      text-align: center;
+    }
+
+    .hero-text h1 {
+      font-family: 'Playfair Display', serif;
+      font-size: 3rem;
+      color: #fff;
+      margin-bottom: 1rem;
+    }
+
+    section {
+      padding: 60px 0;
+    }
+
+    .requirements .card {
+      background: rgba(20, 20, 20, 0.8);
+      border: none;
+    }
+
+    .requirements .card-body h5 {
+      color: #ff416c;
+    }
+
+    .video-container {
+      position: relative;
+      padding-bottom: 56.25%;
+      height: 0;
+      overflow: hidden;
+    }
+
+    .video-container iframe,
+    .video-container video {
+      position: absolute;
+      top: 0;
+      left: 0;
+      width: 100%;
+      height: 100%;
+      border-radius: 8px;
+    }
+
+    .reviews .form-control,
+    .reviews .btn {
+      border-radius: 20px;
+    }
+
+    .reviews .card {
+      background: rgba(30, 30, 30, 0.9);
+      border: none;
+      border-radius: 15px;
+      transition: transform 0.2s;
+    }
+
+    .reviews .card:hover {
+      transform: translateY(-5px);
+      box-shadow: 0 8px 20px rgba(0, 0, 0, 0.7);
+    }
+
+    .reviews .avatar {
+      width: 60px;
+      height: 60px;
+      border-radius: 50%;
+      object-fit: cover;
+      border: 2px solid #ff4b2b;
+      margin-right: 1rem;
+    }
+
+    .reviews .name {
+      font-weight: 600;
+      color: #ff416c;
+    }
+
+    .reviews .comment {
+      font-style: italic;
+      color: #ddd;
+    }
+
+    .reviews .star {
+      color: gold;
+      margin-right: 2px;
+    }
+
+    footer {
+      background: #000;
+      color: #777;
+      padding: 40px 0;
+    }
+
+    .btn-gradient {
+      background: linear-gradient(135deg, #FF416C, #FF4B2B);
+      color: #fff;
+      border-radius: 20px;
+    }
+
+    footer {
+      background: #000;
+      color: #777;
+      padding: 40px 0;
+    }
+
+    footer a {
+      color: #555;
+    }
   </style>
 </head>
 
@@ -204,9 +331,11 @@
 
                 <!-- Social Icons -->
                 <div style="margin: 20px 0; display: flex; gap: 15px; font-size: 2rem;">
-                  <a href="https://youtube.com/@top5creepynew?si=VcJ7fLfm-c1pz_eo" style="color: #FF0000;"><i class="fa fa-youtube-square"></i></a>
+                  <a href="https://youtube.com/@top5creepynew?si=VcJ7fLfm-c1pz_eo" style="color: #FF0000;"><i
+                      class="fa fa-youtube-square"></i></a>
                   <a href="https://github.com/Tharindu714" style="color: white;"><i class="fa fa-github-square"></i></a>
-                  <a href="https://whatsapp.com/channel/0029VaB8JgIGk1Fzzxy2c43s" style="color: greenyellow;"><i class="fa fa-whatsapp"></i></a>
+                  <a href="https://whatsapp.com/channel/0029VaB8JgIGk1Fzzxy2c43s" style="color: greenyellow;"><i
+                      class="fa fa-whatsapp"></i></a>
                   <a href="https://t.me/igbytc" style="color: #027BC0;"><i class="fa fa-telegram"></i></a>
                 </div>
 
@@ -229,7 +358,7 @@
                     onmouseout="this.style.transform='scale(1)'; this.style.boxShadow='0 8px 15px rgba(0, 0, 0, 0.3)';">
                     <div style="display: flex; align-items: center; justify-content: center;">
                       <i class="fa fa-download" style="margin-right: 8px; font-size: 1.3rem;">
-                      <span>Download Now</span></i>
+                        <span>Download Now</span></i>
                     </div>
                     <div style="font-size: 0.75rem; font-weight: normal;">
                       Know_Your_Fear.exe | Version 1.0
@@ -250,64 +379,93 @@
     </div>
   </section>
 
-      <!-- System Requirements -->
-    <section id="requirements" class="requirements">
-      <div class="container">
-        <h2 class="section-title">System Requirements</h2>
-        <br />
-        <div class="row">
-          <div class="col-md-6 mb-4">
-            <div class="card p-3">
-              <div class="card-body">
-                <h5>Minimum</h5>
-                <ul class="list-unstyled">
-                  <li>OS: Windows 10 64-bit / macOS 10.13+</li>
-                  <li>CPU: Intel Core i5-2400 / AMD FX-6300</li>
-                  <li>RAM: 8 GB</li>
-                  <li>GPU: GTX 750 Ti / Radeon R7 260X (2 GB VRAM)</li>
-                  <li>DirectX 11 (Windows)</li>
-                  <li>Storage: 5 GB free space</li>
-                </ul>
-              </div>
-            </div>
-          </div>
-          <div class="col-md-6 mb-4">
-            <div class="card p-3">
-              <div class="card-body">
-                <h5>Recommended</h5>
-                <ul class="list-unstyled">
-                  <li>OS: Windows 10/11 64-bit / macOS 11+</li>
-                  <li>CPU: Intel Core i7-4770 / AMD Ryzen 5 1600</li>
-                  <li>RAM: 16 GB</li>
-                  <li>GPU: GTX 1060 / Radeon RX 580 (4 GB VRAM)</li>
-                  <li>DirectX 11/12 (Windows)</li>
-                  <li>Storage: SSD, 5 GB</li>
-                </ul>
-              </div>
+  <!-- System Requirements -->
+  <section id="requirements" class="requirements">
+    <div class="container">
+      <h2 class="section-title">System Requirements</h2>
+      <br />
+      <div class="row">
+        <div class="col-md-6 mb-4">
+          <div class="card p-3">
+            <div class="card-body">
+              <h5>Minimum</h5>
+              <ul class="list-unstyled">
+                <li>OS: Windows 10 64-bit / macOS 10.13+</li>
+                <li>CPU: Intel Core i5-2400 / AMD FX-6300</li>
+                <li>RAM: 8 GB</li>
+                <li>GPU: GTX 750 Ti / Radeon R7 260X (2 GB VRAM)</li>
+                <li>DirectX 11 (Windows)</li>
+                <li>Storage: 5 GB free space</li>
+              </ul>
             </div>
           </div>
         </div>
-        <p class="text-center small">
-          Target 60 FPS on recommended hardware. Supports 1920×1080 and windowed
-          modes.<br />Controller support: XInput-compatible gamepads.
-        </p>
+        <div class="col-md-6 mb-4">
+          <div class="card p-3">
+            <div class="card-body">
+              <h5>Recommended</h5>
+              <ul class="list-unstyled">
+                <li>OS: Windows 10/11 64-bit / macOS 11+</li>
+                <li>CPU: Intel Core i7-4770 / AMD Ryzen 5 1600</li>
+                <li>RAM: 16 GB</li>
+                <li>GPU: GTX 1060 / Radeon RX 580 (4 GB VRAM)</li>
+                <li>DirectX 11/12 (Windows)</li>
+                <li>Storage: SSD, 5 GB</li>
+              </ul>
+            </div>
+          </div>
+        </div>
       </div>
-    </section>
-
-<!-- Gameplay Video -->
-<section id="gameplay">
-  <div class="container">
-    <div class="video-container" style="position: relative; padding-bottom: 56.25%; height: 0; overflow: hidden;">
-      <iframe 
-        src="https://www.youtube.com/embed/Kpe6rd3bP-Y?si=lwkSG6UeW3GBhQGo" 
-        frameborder="0" 
-        allowfullscreen
-        style="position: absolute; top: 0; left: 0; width: 100%; height: 100%;">
-      </iframe>
+      <p class="text-center small">
+        Target 60 FPS on recommended hardware. Supports 1920×1080 and windowed
+        modes.<br />Controller support: XInput-compatible gamepads.
+      </p>
     </div>
-  </div>
-</section>
+  </section>
 
+  <!-- Gameplay Video -->
+  <section id="gameplay">
+    <div class="container">
+      <div class="video-container" style="position: relative; padding-bottom: 56.25%; height: 0; overflow: hidden;">
+        <iframe src="https://www.youtube.com/embed/Kpe6rd3bP-Y?si=lwkSG6UeW3GBhQGo" frameborder="0" allowfullscreen
+          style="position: absolute; top: 0; left: 0; width: 100%; height: 100%;">
+        </iframe>
+      </div>
+    </div>
+  </section>
+  <!-- Gameplay Video Section -->
+
+  <!-- Reviews Section -->
+  <section id="reviews" class="reviews py-5">
+    <div class="container">
+      <h2 class="section-title">Players' Reviews</h2>
+<br/>
+      <form id="review-form" class="mb-4">
+        <div class="form-row">
+          <div class="col-md-4 mb-2">
+            <input type="text" id="reviewer-name" class="form-control" placeholder="Your Name">
+          </div>
+          <div class="col-md-4 mb-2">
+            <select id="review-rating" class="form-control">
+              <option value="5">⭐️⭐️⭐️⭐️⭐️</option>
+              <option value="4">⭐️⭐️⭐️⭐️</option>
+              <option value="3">⭐️⭐️⭐️</option>
+              <option value="2">⭐️⭐️</option>
+              <option value="1">⭐️</option>
+            </select>
+          </div>
+          <div class="col-md-4 mb-2">
+            <textarea id="review-text" class="form-control" placeholder="Your Review" rows="1"></textarea>
+          </div>
+          <div class="col-md-2 mb-2">
+            <button type="submit" class="btn btn-gradient btn-block">Submit</button>
+          </div>
+        </div>
+      </form>
+
+      <div id="reviews-container" class="row"></div>
+    </div>
+  </section>
 
   <!-- Footer -->
   <footer>
@@ -366,6 +524,79 @@
   <!-- Custom JavaScript -->
   <script src="js/animate.js"></script>
   <script src="js/custom.js"></script>
+
+  <!-- Firebase SDKs -->
+  <script type="module">
+    // 1. Import the functions you need
+    import { initializeApp } from "https://www.gstatic.com/firebasejs/11.9.1/firebase-app.js";
+    import {
+      getFirestore, collection, addDoc, serverTimestamp,
+      query, orderBy, onSnapshot
+    } from "https://www.gstatic.com/firebasejs/11.9.1/firebase-firestore.js";
+
+    // 2. Your Firebase config (replace with your values)
+    const firebaseConfig = {
+      apiKey: "AIzaSyCLK1FNYJ9YB3Zo23OQ_87xLoRH3nDF5PY",
+      authDomain: "knowyourfearreviews.firebaseapp.com",
+      projectId: "knowyourfearreviews",
+      storageBucket: "knowyourfearreviews.appspot.com",
+      messagingSenderId: "159725197582",
+      appId: "1:159725197582:web:ba3cdfa57a5be576d51f5f",
+      measurementId: "G-KGNCCGTCZS"
+    };
+
+    // 3. Initialize Firebase
+    const app = initializeApp(firebaseConfig);
+    const db = getFirestore(app);
+
+    // 4. DOM refs
+    const container = document.getElementById('reviews-container');
+    const form = document.getElementById('review-form');
+
+    // 5. Listen for real-time updates
+    const reviewsQuery = query(
+      collection(db, 'reviews'),
+      orderBy('timestamp', 'desc')
+    );
+    onSnapshot(reviewsQuery, snapshot => {
+      container.innerHTML = '';
+      snapshot.forEach(doc => {
+        const r = doc.data();
+        let stars = '';
+        for (let i = 0; i < r.rating; i++) stars += '<i class="fa fa-star star"></i>';
+        const col = document.createElement('div');
+        col.className = 'col-md-6 col-lg-4 mb-4';
+        col.innerHTML = `
+          <div class="card p-3 h-100">
+            <div class="d-flex align-items-center mb-2">
+              <img src="images/default-avatar.png" class="avatar" alt="Avatar">
+              <div>
+                <div class="name">${r.name}</div>
+                <div>${stars}</div>
+              </div>
+            </div>
+            <p class="comment">"${r.comment}"</p>
+          </div>`;
+        container.appendChild(col);
+      });
+    });
+
+    // 6. Handle new review submissions
+    form.addEventListener('submit', async e => {
+      e.preventDefault();
+      const name = document.getElementById('reviewer-name').value.trim();
+      const comment = document.getElementById('review-text').value.trim();
+      const rating = parseInt(document.getElementById('review-rating').value, 10);
+      if (!name || !comment) return;
+      await addDoc(collection(db, 'reviews'), {
+        name,
+        comment,
+        rating,
+        timestamp: serverTimestamp()
+      });
+      form.reset();
+    });
+  </script>
   <script>
     $(document).on("click", '[data-toggle="lightbox"]', function (event) {
       event.preventDefault();
@@ -373,5 +604,4 @@
     });
   </script>
 </body>
-
 </html>
