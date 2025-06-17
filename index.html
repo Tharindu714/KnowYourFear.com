@@ -183,6 +183,14 @@
           <li class="nav-item active">
             <a class="nav-link" href="index.html">Home <span class="sr-only">(current)</span></a>
           </li>
+
+          <li class="nav-item">
+            <a class="nav-link" href="#reviews">Reviews</a>
+          </li>
+
+          <li class="nav-item">
+            <a class="nav-link" href="#Downloads">Downloads</a>
+          </li>
         </ul>
       </div>
     </div>
@@ -232,6 +240,66 @@
     </ol>
   </div>
   <!--/.Carousel Wrapper-->
+
+    <!-- ========== Overall Star Rating (Text‑Layered) ========== -->
+  <section id="overall-rating" style="
+           display: flex;
+           align-items: center;
+           max-width: 450px;
+           margin: 40px auto;
+           padding: 20px;
+           background: rgba(30,30,30,0.8);
+           border-radius: 12px;
+           box-shadow: 0 4px 12px rgba(0,0,0,0.6);
+           font-family: sans-serif;
+           color: #eee;
+         ">
+
+    <!-- Left: Big clipped star -->
+    <div style="position: relative; width:150px; height:150px; flex-shrink:0;">
+      <!-- background star outline -->
+      <div style="
+      font-size:150px; 
+      line-height:1; 
+      color:#000000;
+    ">★</div>
+      <!-- gold fill, clipped by width -->
+      <div id="star-fill" style="
+      position:absolute;
+      top:0; left:0;
+      width:0%; height:100%;
+      overflow:hidden;
+      color:#FFD700;
+      font-size:150px;
+      line-height:1;
+    ">★</div>
+    </div>
+
+    <!-- Right: Stats & text -->
+    <div style="margin-left:20px; flex-grow:1;">
+
+      <!-- Reviews & Downloads -->
+      <div style="
+      display:flex; 
+      justify-content: space-between; 
+      font-size:0.9rem; 
+      margin-bottom:8px;
+    ">
+        <span><strong id="review-count">0</strong> Reviews | 45 Downloads</span>
+      </div>
+
+      <!-- Numeric rating -->
+      <div id="star-text" style="
+      font-size:2.2rem; 
+      font-weight:bold; 
+      line-height:1;
+      text-shadow: 2px 2px 4px rgba(0,0,0,0.6);
+    ">
+        0.00 / 5
+      </div>
+
+    </div>
+  </section>
 
   <!-- Page Content -->
 
@@ -558,6 +626,24 @@
       collection(db, 'reviews'),
       orderBy('timestamp', 'desc')
     );
+        onSnapshot(reviewsQuery, snapshot => {
+      let totalStars = 0;
+      const count = snapshot.size;
+      snapshot.forEach(doc => {
+        totalStars += Number(doc.data().rating);
+      });
+
+      const avg = count > 0 ? totalStars / count : 0;
+      let pct = (avg / 5) * 100;
+
+      // ❗ Apply a 10% unfill fudge so it never goes full‑rail
+      pct = Math.max(0, pct - 25);
+
+      document.getElementById('star-fill').style.width = pct + '%';
+      document.getElementById('star-text').textContent = avg.toFixed(2) + ' / 5';
+      document.getElementById('review-count').textContent = count;
+    });
+
     onSnapshot(reviewsQuery, snapshot => {
       container.innerHTML = '';
       snapshot.forEach(doc => {
